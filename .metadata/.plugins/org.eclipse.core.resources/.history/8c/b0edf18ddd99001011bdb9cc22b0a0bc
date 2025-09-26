@@ -1,0 +1,10 @@
+package com.kh.java.member.model.dao;
+
+import org.apache.ibatis.session.SqlSession;
+
+public class MemberDao {
+	
+	public void login(SqlSession sqlSession, Member member) {
+		// 설명할것
+	}
+}

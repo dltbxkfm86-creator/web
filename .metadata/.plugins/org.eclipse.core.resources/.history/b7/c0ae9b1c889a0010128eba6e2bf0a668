@@ -1,0 +1,10 @@
+package com.kh.java.member.model.service;
+
+import com.kh.java.member.model.dao.MemberDao;
+
+public class MemberService {
+	
+	private MemberDao md = new MemberDao();
+	
+	
+}
