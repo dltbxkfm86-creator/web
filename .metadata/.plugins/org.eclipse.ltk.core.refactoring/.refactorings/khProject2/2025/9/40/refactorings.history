@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;Category.java&apos; to &apos;vo&apos;" description="Move &apos;Category.java&apos; to &apos;vo&apos;" destination="src/main/java/com/kh/java/board/model/vo" element1="src/main/java/com/kh/java/member/model/vo/Category.java" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1759216731431" updateReferences="true"/>
+</session>

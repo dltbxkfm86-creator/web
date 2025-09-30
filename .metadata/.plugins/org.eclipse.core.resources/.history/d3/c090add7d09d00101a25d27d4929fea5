@@ -1,0 +1,5 @@
+package com.kh.java.common;
+
+public class MyRenamePolicy {
+
+}
