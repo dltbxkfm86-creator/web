@@ -67,6 +67,10 @@
                         </td>
                         <td style="color: #52d6ffcc;">
                         ${ board.bpardTitle } &nbsp;
+                        <%-- 
+                        <a href="detail.board?boardNo=${ board.bpardNo }
+                        </a>
+                         --%>
                         </td>
                         <td>
                         ${ board.createDate }
@@ -79,7 +83,22 @@
                   </tbody>
                   
                </table>               
-            </div>            
+            </div>
+            <script>
+            	$(function() {
+            		
+            		$('.board').click(e => {
+            		
+            			// console.log(e.currentTarget.id)
+            			const targetId = e.currentTarget.id;
+            			location.href = `detail.board?boardNo=\${targetId}`;
+						// location.href = `detail.board`;
+						
+            		});
+            		
+            	})
+            </script>
+            
          </div>
       </div>
          <div class="paging-area" align="center" >
