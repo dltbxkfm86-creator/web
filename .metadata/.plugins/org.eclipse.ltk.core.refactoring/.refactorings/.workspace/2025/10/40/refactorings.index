@@ -1,3 +1,6 @@
 1759286921735	Delete resource 'khProject2/src/main/java/com/kh/java/board/controller/Board.java'
 1759299974667	Delete resource 'khProject2/src/main/webapp/WEB-INF/views/board/NewFile.jsp'
 1759305187423	Delete resource 'khProject2/src/main/java/com/kh/java/common/vo/Attachment.java'
+1759382427869	Delete resource 'khProject2/src/main/java/com/kh/java/member/controller/SearchBoardController.java'
+1759382449755	Delete resource 'khProject2/src/main/java/com/kh/java/member/controller/BoardSearchController.java'
+1759383256618	Delete resource 'khProject2/src/main/java/com/kh/java/member/controller/BoardSearchController.java'

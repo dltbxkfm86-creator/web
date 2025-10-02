@@ -119,5 +119,57 @@ public class BoardService {
 		
 		return result * result2;
 	}
+	
+//	public List<Board> selectSearchList(Map<String, Object> map) {
+//		
+//		SqlSession sqlSession = Template.getSqlSession();
+//		
+//	}
+	
+	public int insertImage(Board board, List<Attachment> files) {
+		
+		SqlSession sqlSession = Template.getSqlSession();
+		
+		// 보드에 INSERT하는거 만들어놨음
+		// Attachement에 INSERT하는거 만들어놈
+		
+		int result = 0;
+		
+		try {
+			// 1. 게시글 INSERT
+			result = bd.insertImageBoard(sqlSession, board);
+			
+			// 2. 게시글에 INSERT가 성공 시 첨부파일들 INSERT
+			if(result > 0) {
+				
+				// 첨부파일 개수만큼 INSERT
+				for(Attachment file : files) {
+					file.setRefBno(board.getBoardNo());
+					
+					result = bd.insertAttachmentList(sqlSession, file);
+					
+					if(result == 0) {
+						break;
+					}
+				}
+				
+			}
+			
+			// 3. 다 성공했으면 Commit
+			if(result > 0) {
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} catch(Exception e) {
+			sqlSession.rollback();
+			e.printStackTrace();
+			result = 0;
+		} finally {
+			sqlSession.close();
+		}
+		return result;
+	}
 
 }

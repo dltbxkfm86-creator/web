@@ -101,6 +101,27 @@
             
          </div>
       </div>
+      
+      <div id="search-area" class="form-group">
+			<form action="search.board" method="get">
+				<select name="condition" class="form-control">
+					<option value="writer">작성자</option>
+					<option value="content">내용</option>
+					<option value="title">제목</option>
+				</select>
+			
+				<button type="submit" class="btn btn-block" style="background:#52b1ff; color:white">검색</button>
+			</form>
+	     </div>
+      </div>
+      <c:if test="${ not empty condition }">
+      	<script>
+      		$(function() {
+      			$('')
+      		})
+      	</script>
+      </c:if>
+      
          <div class="paging-area" align="center" >
         	
         		<c:if test="${ pi.currentPage > 1 }">
@@ -113,9 +134,18 @@
         		
         		<c:forEach var="i" begin="${pi.startPage }"
         						   end="${ pi.endPage }">
+        		<c:choose>
+        		<c:when test="${ not empty condition }">
+        		<button 
+                class="btn btn-outline-primary" style="color:#52b1ff;"
+                onclick="location.href='boards?page=${i}&condition=${condition }&query=${keyword}'">${i}</button>
+        		</c:when>
+        		<c:otherwise>
                 <button 
                 class="btn btn-outline-primary" style="color:#52b1ff;"
                 onclick="location.href='boards?page=${i}'">${i}</button>
+                </c:otherwise>
+                </c:choose>
                 </c:forEach>
 	        	
 	        	<c:if test="${ pi.currentPage ne pi.maxPage }">
@@ -129,10 +159,7 @@
         		
         </div>
       
-      
-      
-      
-   </div>
+
    
      
      

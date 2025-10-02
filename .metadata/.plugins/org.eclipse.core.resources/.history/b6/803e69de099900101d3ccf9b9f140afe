@@ -1,8 +1,0 @@
-package com.kh.el.controller;
-
-public class ElServlet {
-
-	// request와 session
-	request.setAttribute("key", "reques Key");
-	session.setAttribute("key", "session Key");
-}
