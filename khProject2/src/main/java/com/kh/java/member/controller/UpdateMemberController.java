@@ -26,7 +26,7 @@ public class UpdateMemberController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1) GET ? POST ?
 		// post -> 인코딩
-		request.setCharacterEncoding("UTP-8");
+		request.setCharacterEncoding("UTF-8");
 		
 		// 2) 요청 시 전달 값 뽑기
 		// userName, email

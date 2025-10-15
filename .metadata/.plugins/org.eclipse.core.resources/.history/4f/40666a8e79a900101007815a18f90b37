@@ -1,0 +1,42 @@
+package com.kh.java.ajax;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.kh.java.member.model.service.MemberService;
+import com.kh.java.member.model.vo.Member;
+
+@WebServlet("/ajax2.do")
+public class AjaxController2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	public AjaxController2() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// post => 인코딩
+		request.setCharacterEncoding("UTF-8");
+		
+		// 값 뽑기
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		
+		Member member = new Member();
+		member.setUserId(id);
+		member.setUserPwd(pwd);
+		
+		Member loginMember = new MemberService().login(member);
+		System.out.println(loginMember);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

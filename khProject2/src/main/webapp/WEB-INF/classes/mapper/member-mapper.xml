@@ -26,6 +26,28 @@
 		       STATUS = 'Y'
 	</select>
 	
+	<insert id="signUp"
+			parameterType="com.kh.java.member.model.vo.Member">
+		INSERT
+		  INTO
+		       KH_MEMBER
+		       (
+		       USER_NO
+		     , USER_ID
+		     , USER_PWD
+		     , USER_NAME
+		     , EMAIL
+		       )
+		VALUES
+		       (
+		       KH_UNO.NEXTVAL
+		     , #{userId}
+		     , #{userPwd}
+		     , #{userName}
+		     , #{email}
+		       )
+	</insert>
+	
 	<update id="update">
 		UPDATE
 			   KH_MEMBER
@@ -65,4 +87,21 @@
 		   AND 
 		       STATUS = 'Y'
 	</update>
+	
+	<select id="checkId"
+			resultType="string"
+			parameterType="string">
+		SELECT
+		       DECODE(
+		       COUNT(*)
+		     , 0
+		     , 'NNNNY'
+		     , 1
+		     , 'NNNNN'
+		       )	
+		  FROM
+		       KH_MEMBER
+		 WHERE
+		       USER_ID = #{id}
+	</select>  
 </mapper>

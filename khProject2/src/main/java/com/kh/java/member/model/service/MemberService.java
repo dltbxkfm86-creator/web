@@ -45,6 +45,21 @@ public class MemberService {
 			return;
 		}
 	}
+	
+	public int signUp(Member member) {
+		SqlSession sqlSession = Template.getSqlSession();
+		
+		int result = md.signUp(sqlSession, member);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		}
+		
+		sqlSession.close();
+		
+		return result;
+	}
+	
 
 	public int update(Map<String, String> map) {
 		SqlSession session = Template.getSqlSession();
@@ -87,5 +102,14 @@ public class MemberService {
 		return result;
 	}
 	
+	public String CheckId(String id) {
+		SqlSession sqlSession = Template.getSqlSession();
+		
+		String result = md.checkId(sqlSession, id);
+		
+		sqlSession.close();
+		
+		return result;
+	}
 
 }

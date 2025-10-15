@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>내정보 조회하기</title>
 
 <style>
 	#hobby-wrap{
@@ -38,7 +38,7 @@
 						class="form-control tooltipstered" maxlength="14"
 						required="required" aria-required="true"
 						style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-						value="로그인 된 사용자 아이디" readonly>
+						value="${ userInfo.userId }" readonly>
 						</td>
 					
 				</tr>
@@ -53,7 +53,7 @@
 						class="form-control tooltipstered" maxlength="6"
 						required="required" aria-required="true"
 						style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-						placeholder="한글로 최대 6자" value="로그인된 사용자 이름"></td>
+						placeholder="한글로 최대 6자" value="${ userInfo.userName }"></td>
 				</tr>
 				
 				<tr>
@@ -66,7 +66,7 @@
 						class="form-control tooltipstered" 
 						required="required" aria-required="true"
 						style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-						placeholder="ex) kh@kh.com" value="로그인된 사용자 이메일"></td>
+						placeholder="ex) kh@kh.com" value="${ userInfo.email }"></td>
 				</tr>
 				
 	
@@ -118,7 +118,7 @@
 	
 	      <div class="modal-body">
 	        <form action="delete.me" method="post">
-	        
+	        	<input type="hidden" name="userNo" value="${ userInfo.userNo }" />
 			  <div class="form-group">
 			    <label for="userPwd" style="font-size:12px; color:red">탈퇴를 원하신다면 비밀번호를 입력해주세요.</label>
 			    <input type="password" name="userPwd" class="form-control" placeholder="비밀번호를 입력해주세요." id="deletePwd" required>

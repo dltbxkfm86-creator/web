@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;khProject2/src/main/java/com/kh/java/member/controller/MyinfoController.java&apos; to &apos;MyInfoController.java&apos;" description="Rename resource &apos;MyinfoController.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/kh/java/member/controller/MyinfoController.java" name="MyInfoController.java" stamp="1760493227867" updateReferences="true"/>
+</session>

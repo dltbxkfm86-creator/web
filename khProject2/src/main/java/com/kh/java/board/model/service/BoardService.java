@@ -13,6 +13,7 @@ import com.kh.java.common.Template;
 import com.kh.java.board.model.vo.Attachment;
 import com.kh.java.common.vo.PageInfo;
 import com.kh.java.board.model.vo.Category;
+import com.kh.java.board.model.vo.Reply;
 
 public class BoardService {
 	
@@ -170,6 +171,28 @@ public class BoardService {
 			sqlSession.close();
 		}
 		return result;
+	}
+	public int insertReply(Reply reply) {
+		SqlSession sqlSession = Template.getSqlSession();
+		
+		int result = bd.insertReply(sqlSession, reply);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		}
+		
+		sqlSession.commit();
+		
+		return result;
+	}
+	public List<Reply> selectReply(Long boardNo) {
+		SqlSession sqlSession = Template.getSqlSession();
+		
+		List<Reply> reply = bd.selectReply(sqlSession, boardNo);
+		
+		sqlSession.close();
+		
+		return reply;
 	}
 
 }

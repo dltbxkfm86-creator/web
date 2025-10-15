@@ -1,0 +1,42 @@
+package com.kh.java.ajax;
+
+import java.io.IOException;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONObject;
+
+import com.kh.java.board.model.service.BoardService;
+import com.kh.java.board.model.vo.Board;
+
+@WebServlet("/ajax3.do")
+public class AjaxController3 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public AjaxController3() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		Map<String, Object> board1 =  new BoardService().selectBoard(1);
+		System.out.println(board1);
+		JSONObject b1 = new JSONObject();
+		b1.put("boardNo", ((Board)board1.get("board")).getBoardNo());
+		b1.put("boardTitle", ((Board)board1.get("board")).getBpardTitle());
+		b1.put("boardWriter", ((Board)board1.get("board")).getBoardWriter());
+		
+		response.setContentType("application/json; charset=UTF-8");
+		response.getWriter().print(b1);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

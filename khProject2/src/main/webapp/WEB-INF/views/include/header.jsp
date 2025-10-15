@@ -161,7 +161,7 @@
 			<!-- Modal body -->
 			<div class="modal-body">
 
-				<form action="Login.me" name="sign-in" method="post" id="signInForm"
+				<form action="login" name="sign-in" method="post" id="signInForm"
 					style="margin-bottom: 0;">
 					<table style="cellpadding: 0; cellspacing: 0; margin: 0 auto; width: 100%">
 						<tr>

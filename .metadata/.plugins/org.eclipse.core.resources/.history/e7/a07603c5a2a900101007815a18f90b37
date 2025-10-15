@@ -1,0 +1,43 @@
+package com.kh.java.notice;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("*.notice")
+public class NoticeFrontController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public NoticeFrontController() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("앞이 뭐라 시작하든 notice로 끝나면 출력");
+		
+		 String uri =  request.getRequestURI();
+		 // System.out.println(uri);
+		 String mapping = uri.substring(uri.lastIndexOf("/") + 1, uri.lastIndexOf(""));
+		 System.out.println(mapping);
+		 
+		 NoticeController nc = new NoticeController();
+		 String view = "";
+		 
+		 switch(mapping) {
+		 case "insert" : view = nc.insert(request, response);
+		 case "select" : view = nc.insert(request, response);
+		 }
+		 
+		 // ajax로 테이블에다가 insert, select 구현해보기 -> notice
+		 
+		 request.getRequestDispatcher(view).forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

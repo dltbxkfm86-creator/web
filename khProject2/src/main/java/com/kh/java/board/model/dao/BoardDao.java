@@ -8,6 +8,7 @@ import com.kh.java.board.model.vo.Board;
 import com.kh.java.board.model.vo.Attachment;
 import com.kh.java.common.vo.PageInfo;
 import com.kh.java.board.model.vo.Category;
+import com.kh.java.board.model.vo.Reply;
 
 public class BoardDao {
 
@@ -61,5 +62,13 @@ public class BoardDao {
 
 	public int insertAttachmentList(SqlSession sqlSession, Attachment at) {
 		return sqlSession.insert("boardMapper.insertAttachmentList", at);
+	}
+
+	public int insertReply(SqlSession sqlSession, Reply reply) {
+		return sqlSession.insert("boardMapper.insertReply", reply);
+	}
+
+	public List<Reply> selectReply(SqlSession sqlSession, Long boardNo) {
+		return sqlSession.selectList("boardMapper.selectReply", boardNo);
 	}
 }
